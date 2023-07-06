@@ -1,13 +1,18 @@
-import React from 'react';
-import NavBar from './components/nav-bar';
-import Main from './pages/main';
+import Home from "./componets/Home/Home";
+import CartContent from "./componets/CartContent/CartContent";
+import DataProvider from "./componets/Context/DataContext";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div>
-      <NavBar />
-      <Main />
-    </div>
+    <DataProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/cart' element={<CartContent />} />
+        </Routes>
+      </BrowserRouter>
+    </DataProvider>
   );
 }
 
